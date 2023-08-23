@@ -1,4 +1,8 @@
+import java.util.List;
+
 public class Sistema{
-    public void login();
-    public void filtraTipoUsuario();
+    List<Aluno> alunos;
+    List<Disciplina> disciplinas;
+    public void login() {}
+    public void filtraTipoUsuario() {}
 }
