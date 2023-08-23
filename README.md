@@ -29,6 +29,6 @@
 - Como secretaria da universidade, Eu quero gerar o currículo do semestre, para os alunos e professores saberem as matérias.
 
 
-### Cobrnaças
+### Cobranças
 
 - Como membro da contabilidade da universidade, Eu quero cobrar os alunos, para que eles paguem as disciplinas do semestre
