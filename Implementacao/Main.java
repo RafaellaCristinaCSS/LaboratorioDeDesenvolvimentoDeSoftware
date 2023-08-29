@@ -44,7 +44,11 @@ public class Main {
                         menuAluno(usuario, running, scanner);
                     if (usuario instanceof Professor)
                         menuProfessor(usuario, running, scanner);
-                    if (usuario == null)
+                    if (usuario instanceof Secretaria)
+                        menuSecretaria(usuario, running, scanner);
+                    if (usuario instanceof Contabilidade)
+                        menuContabilidade(usuario, running, scanner);
+                        if (usuario == null)
                         throw new Error("Usuario não existe");
                     break;
                 case 3:
@@ -79,6 +83,30 @@ public class Main {
         professor.buscarAlunosPorDisciplinas();
         while (running) {
             System.out.println("Menu do Professor");
+            System.out.println("Selecione uma opção:");
+            System.out.println("1. Op 1");
+            System.out.println("2. Op 2");
+            int choice = scanner.nextInt();
+        }
+    }
+    private static void menuSecretaria(Usuario usuario, boolean running, Scanner scanner) {
+        System.out.println("Menu do Secretaria");
+        Secretaria secretaria = (Secretaria) usuario;
+        secretaria.gerarCurriculoPorSemestre();
+        while (running) {
+            System.out.println("Menu do Secretaria");
+            System.out.println("Selecione uma opção:");
+            System.out.println("1. Op 1");
+            System.out.println("2. Op 2");
+            int choice = scanner.nextInt();
+        }
+    }
+    private static void menuContabilidade(Usuario usuario, boolean running, Scanner scanner) {
+        System.out.println("Menu do Contabilidade");
+        Contabilidade contabilidade = (Contabilidade) usuario;
+        contabilidade.cobrarAlunos();
+        while (running) {
+            System.out.println("Menu do Contabilidade");
             System.out.println("Selecione uma opção:");
             System.out.println("1. Op 1");
             System.out.println("2. Op 2");
