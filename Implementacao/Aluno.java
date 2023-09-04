@@ -5,6 +5,7 @@ public class Aluno extends Usuario{
         super(nome, email, senha, cpf);
     }
 
+    private String[] notificacoes;
     private int NumeroDeCreditos;
     private List<Disciplina> disciplinas;
 
@@ -12,6 +13,10 @@ public class Aluno extends Usuario{
     public void matricularDisciplinas() {
         System.out.println("matricula disciplina");
     }
+
     public void cancelarMatrículasAnteriores() {}
     public void acessarContabilidade() {}
+    public void setNotificacoes(String textoDaNotificacao){
+        notificacoes[notificacoes.length-1] = textoDaNotificacao;
+    }
 }
