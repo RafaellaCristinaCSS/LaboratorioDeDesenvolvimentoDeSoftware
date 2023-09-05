@@ -4,6 +4,6 @@ public class Contabilidade extends Usuario {
     }
 
     public void cobrarAluno(Aluno aluno, String textoDaNotificacao) {
-        aluno.setNotificacoes(textoDaNotificacao);
+        // aluno.setNotificacoes(textoDaNotificacao);
     }
 }

@@ -7,17 +7,17 @@ public class Disciplina{
     private boolean ativa;  
 
     Anexo anexo = Anexo.getInstance();
-    private Disciplina(String nome, int id, boolean obrigatoria, boolean ativa){
+    Disciplina(String nome, int id, boolean obrigatoria, boolean ativa, Integer semestre){
         this.nome = nome;
         this.id = id;
         this.obrigatoria = obrigatoria;
         this.ativa = ativa;
+        this.semestre = semestre;
     }
 
     public void criarDisciplina(String nome, int id, boolean obrigatoria, boolean ativa){
-        Disciplina disciplina = new Disciplina(nome, id, obrigatoria, ativa);
+        Disciplina disciplina = new Disciplina(nome, id, obrigatoria, ativa, 1);
     }
-    public void encerrarMatriculas() {};
     public void setDisciplinas(){
         anexo.printarConteudoAnexoNoConsole("Disciplinas");
     }

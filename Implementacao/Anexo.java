@@ -4,8 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Anexo {
     private static Anexo instancia;
@@ -146,54 +144,4 @@ public class Anexo {
             e.printStackTrace();
         }
     }
-    
-    public void editarValor(String idDesejado, String chaveParaEditar, boolean b, String nomeDoArquivo) {
-        List<String> linhas = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(nomeDoArquivo + ".txt"))) {
-            String linha;
-            while ((linha = reader.readLine()) != null) {
-                if (linha.trim().startsWith("{") && linha.trim().endsWith("}")) {
-                    linha = linha.trim().substring(1, linha.length() - 1).trim();
-    
-                    String[] pares = linha.split(",");
-                    String id = null;
-                    for (int i = 0; i < pares.length; i++) {
-                        String par = pares[i].trim();
-                        String[] partes = par.split(":");
-                        if (partes.length == 2) {
-                            String chave = partes[0].trim();
-                            String valor = partes[1].trim();
-                            if ("'id'".equals(chave)) {
-                                id = valor.replace("\"", "").trim();
-                            }
-                            if (chave.equals("'" + chaveParaEditar + "'") && id != null && id.equals("'" + idDesejado + "'")) {
-                                pares[i] = "'" + chaveParaEditar + "': '" + b + "'";
-                            }
-                        }
-                    }
-                    linhas.add("{" + String.join(",", pares) + "}");
-                } else {
-                    linhas.add(linha);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    
-        escreverArquivoConteudoEditado(nomeDoArquivo, linhas);
-    }
-    private static void escreverArquivoConteudoEditado(String nomeDoArquivo, List<String> linhas) {
-        try {
-            FileWriter arquivoWriter = new FileWriter(nomeDoArquivo + ".txt");
-            BufferedWriter bufferEscrita = new BufferedWriter(arquivoWriter);
-            for (String linha : linhas) {
-                bufferEscrita.write(linha);
-                bufferEscrita.newLine();
-            }
-            bufferEscrita.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
 }

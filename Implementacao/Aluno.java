@@ -51,6 +51,7 @@ public class Aluno extends Usuario{
 
     public void matricularNaDisciplina(String nomeDisciplina) {
         Turma turma = curso.getTurmas().get(nomeDisciplina);
+        turma.addAlunosMatriculados(this);
         if (turma == null) {
             System.out.println("disciplina, ou turma não existe, ou não está presente no seu curso");
             return;

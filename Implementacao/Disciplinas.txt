@@ -1,0 +1,4 @@
+{'id': '01','nome': 'Matematica','obrigatoria': true,'ativa': true}
+{'id': '02','nome': 'Português','obrigatoria': true,'ativa': true}
+{'id': '03','nome': 'História','optativa': true,'ativa': true}
+{'id': '04','nome': 'Geografia','optativa': true,'ativa': true}
