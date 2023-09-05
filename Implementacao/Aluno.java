@@ -11,15 +11,19 @@ public class Aluno extends Usuario{
         this.disciplinasCursadas = new ArrayList<>();
     }
 
+
+    private String[] notificacoes;
+    private int NumeroDeCreditos;
+
     private List<Disciplina> disciplinasAtivas;
     private List<Turma> turmasMatriculadas;
     private List<Disciplina> disciplinasCursadas;
     private Curso curso;
 
+
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
-
 
     public List<Disciplina> getDisciplinasRestantes() {
         Set<String> nomeDisciplinasCursadas = disciplinasCursadas.stream().map(Disciplina::getNome).collect(Collectors.toSet());

@@ -1,12 +1,25 @@
 public class Disciplina{
-    private boolean obrigatoria;
-    private Integer semestre;
-    private String nome;
 
-    public Disciplina(boolean obrigatoria, Integer semestre, String nome) {
-        this.obrigatoria = obrigatoria;
-        this.semestre = semestre;
+    private String nome;  
+    private int id;  
+    private boolean obrigatoria;  
+    private Integer semestre;
+    private boolean ativa;  
+
+    Anexo anexo = Anexo.getInstance();
+    private Disciplina(String nome, int id, boolean obrigatoria, boolean ativa){
         this.nome = nome;
+        this.id = id;
+        this.obrigatoria = obrigatoria;
+        this.ativa = ativa;
+    }
+
+    public void criarDisciplina(String nome, int id, boolean obrigatoria, boolean ativa){
+        Disciplina disciplina = new Disciplina(nome, id, obrigatoria, ativa);
+    }
+    public void encerrarMatriculas() {};
+    public void setDisciplinas(){
+        anexo.printarConteudoAnexoNoConsole("Disciplinas");
     }
 
     public boolean isObrigatoria() {

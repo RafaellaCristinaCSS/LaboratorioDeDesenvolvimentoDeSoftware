@@ -120,7 +120,7 @@ public class Main {
     private static void menuSecretaria(Usuario usuario, boolean running, Scanner scanner, Sistema sistema) {
         System.out.println("Menu do Secretaria");
         Secretaria secretaria = (Secretaria) usuario;
-        secretaria.gerarCurriculoPorSemestre();
+        // secretaria.gerarCurriculoPorSemestre();
         while (running) {
             System.out.println("Menu do Secretaria");
             System.out.println("Selecione uma opção:");
@@ -132,7 +132,7 @@ public class Main {
     private static void menuContabilidade(Usuario usuario, boolean running, Scanner scanner, Sistema sistema) {
         System.out.println("Menu do Contabilidade");
         Contabilidade contabilidade = (Contabilidade) usuario;
-        contabilidade.cobrarAlunos();
+        // contabilidade.cobrarAluno();
         while (running) {
             System.out.println("Menu do Contabilidade");
             System.out.println("Selecione uma opção:");
