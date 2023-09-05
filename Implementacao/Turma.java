@@ -50,4 +50,8 @@ public class Turma {
         return alunos;
     }
 
+    public void addAlunosMatriculados(Aluno a) {
+        this.alunos.add(a);
+    }
+
 }

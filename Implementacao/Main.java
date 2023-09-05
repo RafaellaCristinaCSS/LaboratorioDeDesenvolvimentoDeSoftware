@@ -78,6 +78,7 @@ public class Main {
             System.out.println("2. Listar disciplinas que faltam fazer");
             System.out.println("3. Matricular na disciplina");
             System.out.println("4. Cancelar matricula na disciplina na disciplina");
+            System.out.println("5. Logout");
             int choice = scanner.nextInt();
             String aux;
             switch (choice) {
@@ -97,6 +98,9 @@ public class Main {
                     aux = scanner.next();
                     aluno.cancelarMatricula(aux);
                     break;
+                case 5:
+                    running = false;
+                    break;
                 default:
                     System.out.println("Opção inválida.");
             }
@@ -108,13 +112,24 @@ public class Main {
     private static void menuProfessor(Usuario usuario, boolean running, Scanner scanner, Sistema sistema) {
         System.out.println("Menu do Professor");
         Professor professor = (Professor) usuario;
-        professor.buscarAlunosPorDisciplinas();
+        // professor.buscarAlunosPorDisciplinas();
         while (running) {
             System.out.println("Menu do Professor");
             System.out.println("Selecione uma opção:");
-            System.out.println("1. Op 1");
-            System.out.println("2. Op 2");
+            System.out.println("1. Listar alunos matriculados nas disciplinas");
+            System.out.println("2. Logout");
             int choice = scanner.nextInt();
+            String aux;
+            switch (choice) {
+                case 1:
+                    professor.buscarAlunosPorDisciplinas();
+                    break;
+                case 2:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
+            }
         }
     }
     private static void menuSecretaria(Usuario usuario, boolean running, Scanner scanner, Sistema sistema) {
@@ -155,18 +170,18 @@ public class Main {
         sistema.adicionarProfessor(professor1);
         sistema.adicionarProfessor(professor2);
 
-        Disciplina disciplinaAedsUm = new Disciplina(true, 1, "AEDS1");
-        Disciplina disciplinaAedsDois = new Disciplina(true, 2, "AEDS2");
+        Disciplina disciplinaAedsUm = new Disciplina("AEDS1", 1,true, true, 1);
+        Disciplina disciplinaAedsDois = new Disciplina("AEDS2", 2, true, true, 2);
         Turma turmaAedsUm = new Turma(disciplinaAedsUm, professor1, new ArrayList<>(), new Date());
         Turma turmaAedsDois = new Turma(disciplinaAedsDois, professor2, new ArrayList<>(), new Date());
+        professor1.addTurmasMinistradas(turmaAedsUm);
+        professor2.addTurmasMinistradas(turmaAedsDois);
         Map<String, Turma> turmasEngSoft = new HashMap<>();
         turmasEngSoft.put(disciplinaAedsUm.getNome(), turmaAedsUm);
         turmasEngSoft.put(disciplinaAedsDois.getNome(), turmaAedsDois);
         Curso curso1 = new Curso("EngSoft", 180, List.of(disciplinaAedsUm, disciplinaAedsDois), turmasEngSoft);
         sistema.adicionarCurso(curso1);
-
         aluno1.setCurso(sistema.getCursoPeloNome("EngSoft"));
         aluno2.setCurso(sistema.getCursoPeloNome("EngSoft"));
-
     }
 }

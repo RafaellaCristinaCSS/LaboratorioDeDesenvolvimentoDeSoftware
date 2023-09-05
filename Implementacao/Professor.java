@@ -1,12 +1,15 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Professor extends Usuario{
-        public Professor(String nome, String email, String senha, String cpf) {
+    private List<Turma> turmasMinistradas;
+    public Professor(String nome, String email, String senha, String cpf) {
         super(nome, email, senha, cpf);
+        this.turmasMinistradas = new ArrayList<>();
     }
 
-        public void buscarAlunosPorDisciplinas(List<Turma> turmas) {
-        for (Turma turma : turmas) {
+    public void buscarAlunosPorDisciplinas() {
+        for (Turma turma : turmasMinistradas) {
             List<Aluno> alunos = turma.getAlunosMatriculados();
             Disciplina disciplina = turma.getDisciplina();
 
@@ -16,9 +19,14 @@ public class Professor extends Usuario{
             for (Aluno aluno : alunos) {
                 System.out.println("- " + aluno.getNome());
             }
-
-            System.out.println();
         }
     }
 
+    public List<Turma> getTurmasMinistradas() {
+        return turmasMinistradas;
+    }
+
+    public void addTurmasMinistradas(Turma turmasMinistradas) {
+        this.turmasMinistradas.add(turmasMinistradas);
+    }
 }
