@@ -45,4 +45,9 @@ public class Turma {
     public void setInicio(Date inicio) {
         this.inicio = inicio;
     }
+
+    public List<Aluno> getAlunosMatriculados() {
+        return alunos;
+    }
+
 }
