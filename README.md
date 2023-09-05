@@ -1,5 +1,9 @@
 # Laboratorio De Desenvolvimento De Software
 
+### Professor: Thiago Augusto
+
+### Alunos: <br>Fernando Couto <br> Rafaela Cristina <br> Rafael Pirre
+
 ## Histórias de Usuário - Sistema de matrículas
 
 
