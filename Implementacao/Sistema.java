@@ -28,6 +28,12 @@ public class Sistema {
         this.cursos.add(curso);
     }
 
+    public void addSecreateria(Secretaria s) {
+        this.membrosSecretarias.add(s);
+    }
+
+
+
 
 
     public Curso getCursoPeloNome(String nome) {
