@@ -139,9 +139,26 @@ public class Main {
         while (running) {
             System.out.println("Menu do Secretaria");
             System.out.println("Selecione uma opção:");
-            System.out.println("1. Op 1");
-            System.out.println("2. Op 2");
+            System.out.println("1. Gerar curriculo por semestre");
+            System.out.println("2. Logout");
             int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Digite a disciplina:");
+                    String disc = scanner.next();
+                    System.out.println("Digite o prof:");
+                    String prof = scanner.next();
+                    System.out.println("Digite o tipo de aluno:");
+                    String aluno = scanner.next();
+                    secretaria.gerarCurriculoPorSemestre(disc, prof, aluno);
+                    break;
+                case 2:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
+            }
+
         }
     }
     private static void menuContabilidade(Usuario usuario, boolean running, Scanner scanner, Sistema sistema) {
@@ -164,11 +181,13 @@ public class Main {
         sistema.adicionarAluno(aluno1);
         sistema.adicionarAluno(aluno2);
 
+        Secretaria s = new Secretaria("Maria", "m@email.com", "senha456", "98765432101");
 
         Professor professor1 = new Professor("Professor A", "professorA@email.com", "senha111", "11122233344");
         Professor professor2 = new Professor("Professor B", "professorB@email.com", "senha222", "55566677788");
         sistema.adicionarProfessor(professor1);
         sistema.adicionarProfessor(professor2);
+        sistema.addSecreateria(s);
 
         Disciplina disciplinaAedsUm = new Disciplina("AEDS1", 1,true, true, 1);
         Disciplina disciplinaAedsDois = new Disciplina("AEDS2", 2, true, true, 2);

@@ -12,8 +12,8 @@ public class Secretaria extends Usuario{
         anexo.preencherAnexo(conteudo, "CurriculosPorSemestre");
     }
 
-    public void gerarCurriculoPorSemestre(String disciplina, String professor, String aluno) {
-        curriculosPorSemestre= "O aluno: "+ aluno +" esta matriculado na disciplina "+ disciplina +" ministrada pelo professor "+ professor;
+    public void gerarCurriculoPorSemestre(String disciplina, String professor, String alunos) {
+        curriculosPorSemestre= "Os alunos: "+ alunos +" estão matriculados na disciplina "+ disciplina+" cujo o nome é "+ disciplina +" ministrada pelo professor "+ professor;
         armazenarInformacoes(curriculosPorSemestre);
     }
 
